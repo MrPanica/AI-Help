@@ -720,46 +720,169 @@ if ($playerProfile) {
     $playerTodayStats = getPlayerTodayStats($db, $playerId, $selectedServer);
     $playerTotalStats = getPlayerTotalStats($db, $playerId, $selectedServer);
 }
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
 ?>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<link rel="stylesheet" href="stats.css">
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script type="application/json" id="stats-data"><?php echo json_encode($jsData); ?></script>
+<script src="stats.js"></script>
 
 <div class="block">
     <div class="block-container">
         <div class="block-header">
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
             <?php if ($playerProfile): ?>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                 <h2 class="block-title">Статистика игрока: <?= htmlspecialchars($playerProfile['nick']) ?></h2>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
             <?php else: ?>
                 <h2 class="block-title">Статистика игроков</h2>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
             <?php endif; ?>
         </div>
         
         <div class="block-body">
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
             <?php if (!$playerProfile): ?>
                 <!-- Информационные карточки -->
                 <div class="info-cards">
                     <div class="info-card">
                         <div class="info-card-title">Уникальные подключения за период</div>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                         <div class="info-card-value"><?= $periodStats['unique_players'] ?></div>
                         <div class="info-card-subtext">
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                             +<?= $todayStats['unique_players'] ?> за сегодня
                         </div>
                     </div>
                     
                     <div class="info-card">
                         <div class="info-card-title">Время игры за период</div>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                         <div class="info-card-value"><?= formatTime($periodStats['playtime'] / 60) ?></div>
                         <div class="info-card-subtext">
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                             +<?= formatTime($todayStats['playtime'] / 60) ?> за сегодня
                         </div>
                     </div>
                     
                     <div class="info-card">
                         <div class="info-card-title">Всего уникальных</div>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                         <div class="info-card-value"><?= $totalStats['unique_players'] ?></div>
                         <div class="info-card-subtext">
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                             Всего времени: <?= formatTime($totalStats['playtime'] / 60) ?>
                         </div>
                     </div>
@@ -767,8 +890,28 @@ if ($playerProfile) {
                 
                 <!-- Отступ между карточками и графиком -->
                 <div class="spacer-lg"></div>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
             <?php endif; ?>
             
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
             <?php if (!$playerProfile || $playerId): ?>
                 <!-- График активности -->
                 <div class="chart-container">
@@ -777,11 +920,31 @@ if ($playerProfile) {
                 
                 <!-- Отступ между графиком и фильтрами -->
                 <div class="spacer"></div>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
             <?php endif; ?>
             
             <!-- Фильтры -->
             <div class="filters">
                 <form method="get" class="filter-form" id="filtersForm">
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                     <input type="hidden" name="tab" value="<?= htmlspecialchars($selectedTab) ?>">
                     <input type="hidden" name="page" value="1">
                     
@@ -793,10 +956,50 @@ if ($playerProfile) {
                                 <label>Сервер:</label>
                                 <select name="server" class="input input--select">
                                     <option value="0">Все серверы</option>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                     <?php foreach ($servers as $id => $server): ?>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                         <option value="<?= $id ?>" <?= $selectedServer == $id ? 'selected' : '' ?>>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                             <?= htmlspecialchars($server['server_shortname']) ?>
                                         </option>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                     <?php endforeach; ?>
                                 </select>
                             </div>
@@ -805,9 +1008,49 @@ if ($playerProfile) {
                                 <label>Период:</label>
                                 <input type="text" name="date_range" class="input date-range" 
                                        placeholder="Выберите даты" 
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                        data-start="<?= htmlspecialchars($startDate) ?>" 
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                        data-end="<?= htmlspecialchars($endDate) ?>">
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                 <input type="hidden" name="start_date" value="<?= htmlspecialchars($startDate) ?>">
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                 <input type="hidden" name="end_date" value="<?= htmlspecialchars($endDate) ?>">
                             </div>
                         </div>
@@ -815,31 +1058,101 @@ if ($playerProfile) {
                         <div class="filter-row">
                             <div class="filter-item">
                                 <label>Игрок:</label>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                 <input type="text" name="player" class="input" placeholder="Ник или SteamID" value="<?= htmlspecialchars($playerSearch) ?>">
                             </div>
                             
                             <div class="filter-item">
                                 <label>IP-адрес:</label>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                 <input type="text" name="ip" class="input" placeholder="xxx.xxx.xxx.xxx" value="<?= htmlspecialchars($ipSearch) ?>">
                             </div>
                         </div>
                         
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                         <?php if ($selectedTab == 'chat'): ?>
                         <div class="filter-row">
                             <div class="filter-item">
                                 <label>Тип сообщения:</label>
                                 <select name="type" class="input input--select">
                                     <option value="">Все типы</option>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                     <option value="say" <?= $typeFilter == 'say' ? 'selected' : '' ?>>Общий чат</option>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                     <option value="team_say" <?= $typeFilter == 'team_say' ? 'selected' : '' ?>>Командный чат</option>
                                 </select>
                             </div>
                             
                             <div class="filter-item">
                                 <label>Поиск по тексту:</label>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                 <input type="text" name="msg" class="input" placeholder="Текст сообщения..." value="<?= htmlspecialchars($msgSearch) ?>">
                             </div>
                         </div>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                         <?php endif; ?>
                         
                         <div class="filter-row">
@@ -850,12 +1163,42 @@ if ($playerProfile) {
                 </form>
             </div>
             
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
             <?php if ($playerProfile): ?>
                 <!-- Профиль игрока -->
                 <div class="player-profile">
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                     <a href="?<?= http_build_query(array_diff_key($_GET, ['player_id' => ''])) ?>" class="button button--primary" style="margin-bottom: 20px;">Назад к статистике</a>
                     
                     <div class="profile-header">
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                         <?php if ($playerProfile['steamid64']): ?>
                             <div class="profile-avatar">
                                 <?php
@@ -863,38 +1206,148 @@ if ($playerProfile) {
                                 if ($steamInfo && isset($steamInfo[$playerProfile['steamid64']]['avatar'])) {
                                     $avatarUrl = $steamInfo[$playerProfile['steamid64']]['avatar'];
                                 }
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                 ?>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                 <img src="<?= htmlspecialchars($avatarUrl) ?>" 
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                      alt="Аватар <?= htmlspecialchars($playerProfile['nick']) ?>"
                                      onerror="this.onerror=null;this.src='https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/fe/fef49e7fa7e1997310d705b2a6158ff8dc1cdfeb_full.jpg'">
                             </div>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                         <?php endif; ?>
                         
                         <div class="profile-header-main">
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                             <h2 class="profile-title">Профиль игрока: <?= htmlspecialchars($playerProfile['nick']) ?></h2>
                             
                             <!-- Статистика игрока -->
                             <div class="info-cards">
                                 <div class="info-card">
                                     <div class="info-card-title">Подключения за период</div>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                     <div class="info-card-value"><?= $playerPeriodStats['connections'] ?></div>
                                     <div class="info-card-subtext">
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                         <?= $playerTodayStats['connections'] ?> за сегодня
                                     </div>
                                 </div>
                                 
                                 <div class="info-card">
                                     <div class="info-card-title">Время игры за период</div>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                     <div class="info-card-value"><?= formatTime($playerPeriodStats['playtime'] / 60) ?></div>
                                     <div class="info-card-subtext">
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                         +<?= formatTime($playerTodayStats['playtime'] / 60) ?> за сегодня
                                     </div>
                                 </div>
                                 
                                 <div class="info-card">
                                     <div class="info-card-title">Всего времени в игре</div>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                     <div class="info-card-value"><?= formatTime($playerTotalStats['playtime'] / 60) ?></div>
                                     <div class="info-card-subtext">
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                         Всего подключений: <?= $playerTotalStats['connections'] ?>
                                     </div>
                                 </div>
@@ -907,48 +1360,208 @@ if ($playerProfile) {
                             <div class="profile-info-item">
                                 <span class="info-label">SteamID:</span>
                                 <span class="info-value">
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                     <?php if ($playerProfile['steamid64']): ?>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                         <a href="https://steamcommunity.com/profiles/<?= htmlspecialchars($playerProfile['steamid64']) ?>" target="_blank">
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                             <?= htmlspecialchars($playerProfile['steamid']) ?>
                                         </a>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                     <?php else: ?>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                         <?= htmlspecialchars($playerProfile['steamid'] ?: '-') ?>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                     <?php endif; ?>
                                 </span>
                             </div>
                             
                             <div class="profile-info-item">
                                 <span class="info-label">IP-адрес:</span>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                 <span class="info-value"><?= htmlspecialchars($playerProfile['ip'] ?: '-') ?></span>
                             </div>
                             
                             <div class="profile-info-item">
                                 <span class="info-label">Дата регистрации:</span>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                 <span class="info-value"><?= formatDate($playerProfile['regdate']) ?></span>
                             </div>
                             
                             <div class="profile-info-item">
                                 <span class="info-label">Последняя активность:</span>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                 <span class="info-value"><?= formatDate($playerProfile['activitydate']) ?></span>
                             </div>
                             
                             <div class="profile-info-item">
                                 <span class="info-label">Время онлайн:</span>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                 <span class="info-value"><?= formatTime($playerProfile['online']) ?></span>
                             </div>
                             
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                             <?php if ($steamInfo && isset($steamInfo[$playerProfile['steamid64']]['timecreated']) && $steamInfo[$playerProfile['steamid64']]['timecreated'] > 0): ?>
                                 <div class="profile-info-item">
                                     <span class="info-label">Профиль Steam создан:</span>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                     <span class="info-value"><?= formatDate($steamInfo[$playerProfile['steamid64']]['timecreated']) ?></span>
                                 </div>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                             <?php endif; ?>
                             
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                             <?php if ($tf2Playtime > 0): ?>
                                 <div class="profile-info-item">
                                     <span class="info-label">Время в TF2:</span>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                     <span class="info-value"><?= formatTime($tf2Playtime) ?></span>
                                 </div>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                             <?php endif; ?>
                         </div>
                     </div>
@@ -994,6 +1607,16 @@ if ($playerProfile) {
                             $visits = $result->fetch_all(MYSQLI_ASSOC);
                             $stmt->close();
                         }
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                         ?>
                         
                         <div class="dataList">
@@ -1008,31 +1631,171 @@ if ($playerProfile) {
                                     </tr>
                                 </thead>
                                 <tbody>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                     <?php if (!empty($visits)): ?>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                         <?php foreach ($visits as $visit): ?>
                                             <tr>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                 <td><?= htmlspecialchars($visit['server_name']) ?></td>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                 <td><?= formatDate($visit['connect']) ?></td>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                 <td><?= $visit['disconnect'] ? formatDate($visit['disconnect']) : 'В сети' ?></td>
                                                 <td>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                     <?php if ($visit['disconnect']): ?>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                         <?= formatTime(($visit['disconnect'] - $visit['connect']) / 60) ?>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                     <?php else: ?>
                                                         -
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                     <?php endif; ?>
                                                 </td>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                 <td><?= htmlspecialchars($visit['map'] ?: '-') ?></td>
                                             </tr>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                         <?php endforeach; ?>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                     <?php else: ?>
                                         <tr>
                                             <td colspan="5" class="no-data">Нет данных о посещениях</td>
                                         </tr>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                     <?php endif; ?>
                                 </tbody>
                             </table>
                         </div>
                         
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                         <?php if ($visitsPages > 1): ?>
                         <div class="pageNavWrapper">
                             <div class="pageNav">
@@ -1086,9 +1849,29 @@ if ($playerProfile) {
                                 }
                                 
                                 echo $pageNav;
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                 ?>
                             </div>
                         </div>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                         <?php endif; ?>
                     </div>
                     
@@ -1133,6 +1916,16 @@ if ($playerProfile) {
                             $chatMessages = $result->fetch_all(MYSQLI_ASSOC);
                             $stmt->close();
                         }
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                         ?>
                         
                         <div class="dataList">
@@ -1146,32 +1939,172 @@ if ($playerProfile) {
                                     </tr>
                                 </thead>
                                 <tbody>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                     <?php if (!empty($chatMessages)): ?>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                         <?php foreach ($chatMessages as $message): ?>
                                             <tr>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                 <td><?= formatDate($message['date']) ?></td>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                 <td><?= htmlspecialchars($message['server_name']) ?></td>
                                                 <td>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                     <?php if ($message['type'] == 'say'): ?>
                                                         <span class="badge badge--general">Общий</span>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                     <?php elseif ($message['type'] == 'team_say'): ?>
                                                         <span class="badge badge--team">Команда</span>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                     <?php else: ?>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                         <?= htmlspecialchars($message['type']) ?>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                     <?php endif; ?>
                                                 </td>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                 <td><?= htmlspecialchars($message['msg']) ?></td>
                                             </tr>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                         <?php endforeach; ?>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                     <?php else: ?>
                                         <tr>
                                             <td colspan="4" class="no-data">Нет сообщений в чате</td>
                                         </tr>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                     <?php endif; ?>
                                 </tbody>
                             </table>
                         </div>
                         
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                         <?php if ($chatPages > 1): ?>
                         <div class="pageNavWrapper">
                             <div class="pageNav">
@@ -1225,25 +2158,125 @@ if ($playerProfile) {
                                 }
                                 
                                 echo $pageNav;
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                 ?>
                             </div>
                         </div>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                         <?php endif; ?>
                     </div>
                 </div>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
             <?php else: ?>
                 <!-- Вкладки -->
                 <div class="tabs">
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                     <a href="?tab=summary&<?= http_build_query(array_merge(['page' => 1], array_diff_key($_GET, ['tab'=>'', 'page'=>'']))) ?>" class="tab <?= $selectedTab == 'summary' ? 'active' : '' ?>">Обзор</a>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                     <a href="?tab=visits&<?= http_build_query(array_merge(['page' => 1], array_diff_key($_GET, ['tab'=>'', 'page'=>'']))) ?>" class="tab <?= $selectedTab == 'visits' ? 'active' : '' ?>">Посещения</a>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                     <a href="?tab=chat&<?= http_build_query(array_merge(['page' => 1], array_diff_key($_GET, ['tab'=>'', 'page'=>'']))) ?>" class="tab <?= $selectedTab == 'chat' ? 'active' : '' ?>">Лог чата</a>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                     <a href="?tab=players&<?= http_build_query(array_merge(['page' => 1], array_diff_key($_GET, ['tab'=>'', 'page'=>'']))) ?>" class="tab <?= $selectedTab == 'players' ? 'active' : '' ?>">Статистика игроков</a>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                     <a href="?tab=top100&<?= http_build_query(array_merge(['page' => 1], array_diff_key($_GET, ['tab'=>'', 'page'=>'']))) ?>" class="tab <?= $selectedTab == 'top100' ? 'active' : '' ?>">Топ 100</a>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                     <a href="?tab=additional&<?= http_build_query(array_merge(['page' => 1], array_diff_key($_GET, ['tab'=>'', 'page'=>'']))) ?>" class="tab <?= $selectedTab == 'additional' ? 'active' : '' ?>">Дополнительно</a>
                 </div>
                 
                 <!-- Контент вкладок -->
                 <div class="tab-content">
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                     <?php if ($selectedTab == 'summary' || $selectedTab == 'visits'): ?>
                         <!-- Статистика посещений -->
                         <?php
@@ -1351,6 +2384,16 @@ if ($playerProfile) {
                             $visits = $result->fetch_all(MYSQLI_ASSOC);
                             $stmt->close();
                         }
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                         ?>
                         
                         <div class="dataList">
@@ -1358,89 +2401,429 @@ if ($playerProfile) {
                                 <thead>
                                     <tr>
                                         <th>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                             <a href="?<?= http_build_query(array_merge($_GET, ['sort' => 'u.nick', 'order' => ($sortField === 'u.nick' && $sortOrder === 'ASC') ? 'DESC' : 'ASC'])) ?>">
                                                 Игрок
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                 <?= ($sortField === 'u.nick') ? ($sortOrder === 'ASC' ? '▲' : '▼') : '' ?>
                                             </a>
                                         </th>
                                         <th>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                             <a href="?<?= http_build_query(array_merge($_GET, ['sort' => 's.server_name', 'order' => ($sortField === 's.server_name' && $sortOrder === 'ASC') ? 'DESC' : 'ASC'])) ?>">
                                                 Сервер
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                 <?= ($sortField === 's.server_name') ? ($sortOrder === 'ASC' ? '▲' : '▼') : '' ?>
                                             </a>
                                         </th>
                                         <th>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                             <a href="?<?= http_build_query(array_merge($_GET, ['sort' => 'v.connect', 'order' => ($sortField === 'v.connect' && $sortOrder === 'ASC') ? 'DESC' : 'ASC'])) ?>">
                                                 Подключение
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                 <?= ($sortField === 'v.connect') ? ($sortOrder === 'ASC' ? '▲' : '▼') : '' ?>
                                             </a>
                                         </th>
                                         <th>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                             <a href="?<?= http_build_query(array_merge($_GET, ['sort' => 'v.disconnect', 'order' => ($sortField === 'v.disconnect' && $sortOrder === 'ASC') ? 'DESC' : 'ASC'])) ?>">
                                                 Отключение
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                 <?= ($sortField === 'v.disconnect') ? ($sortOrder === 'ASC' ? '▲' : '▼') : '' ?>
                                             </a>
                                         </th>
                                         <th>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                             <a href="?<?= http_build_query(array_merge($_GET, ['sort' => 'duration', 'order' => ($sortField === 'duration' && $sortOrder === 'ASC') ? 'DESC' : 'ASC'])) ?>">
                                                 Длительность
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                 <?= ($sortField === 'duration') ? ($sortOrder === 'ASC' ? '▲' : '▼') : '' ?>
                                             </a>
                                         </th>
                                         <th>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                             <a href="?<?= http_build_query(array_merge($_GET, ['sort' => 'v.map', 'order' => ($sortField === 'v.map' && $sortOrder === 'ASC') ? 'DESC' : 'ASC'])) ?>">
                                                 Карта
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                 <?= ($sortField === 'v.map') ? ($sortOrder === 'ASC' ? '▲' : '▼') : '' ?>
                                             </a>
                                         </th>
                                         <th>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                             <a href="?<?= http_build_query(array_merge($_GET, ['sort' => 'v.ip', 'order' => ($sortField === 'v.ip' && $sortOrder === 'ASC') ? 'DESC' : 'ASC'])) ?>">
                                                 IP
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                 <?= ($sortField === 'v.ip') ? ($sortOrder === 'ASC' ? '▲' : '▼') : '' ?>
                                             </a>
                                         </th>
                                         <th>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                             <a href="?<?= http_build_query(array_merge($_GET, ['sort' => 'v.geo', 'order' => ($sortField === 'v.geo' && $sortOrder === 'ASC') ? 'DESC' : 'ASC'])) ?>">
                                                 Гео
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                 <?= ($sortField === 'v.geo') ? ($sortOrder === 'ASC' ? '▲' : '▼') : '' ?>
                                             </a>
                                         </th>
                                     </tr>
                                 </thead>
                                 <tbody>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                     <?php if (!empty($visits)): ?>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                         <?php foreach ($visits as $visit): ?>
                                             <tr>
                                                 <td>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                     <a href="?<?= http_build_query(array_merge($_GET, ['player_id' => $visit['uid']])) ?>" 
                                                        class="player-link">
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                         <?= htmlspecialchars($visit['nick']) ?>
                                                     </a>
                                                 </td>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                 <td><?= htmlspecialchars($visit['server_name']) ?></td>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                 <td><?= formatDate($visit['connect']) ?></td>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                 <td><?= $visit['disconnect'] ? formatDate($visit['disconnect']) : 'В сети' ?></td>
                                                 <td>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                     <?php if ($visit['disconnect']): ?>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                         <?= formatTime(($visit['disconnect'] - $visit['connect']) / 60) ?>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                     <?php else: ?>
                                                         -
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                     <?php endif; ?>
                                                 </td>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                 <td><?= htmlspecialchars($visit['map'] ?: '-') ?></td>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                 <td><?= htmlspecialchars($visit['ip']) ?></td>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                 <td><?= htmlspecialchars($visit['geo']) ?></td>
                                             </tr>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                         <?php endforeach; ?>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                     <?php else: ?>
                                         <tr>
                                             <td colspan="9" class="no-data">Нет данных о посещениях</td>
                                         </tr>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                     <?php endif; ?>
                                 </tbody>
                             </table>
                         </div>
                         
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                         <?php if ($totalPages > 1): ?>
                         <div class="pageNavWrapper">
                             <div class="pageNav">
@@ -1494,11 +2877,41 @@ if ($playerProfile) {
                                 }
                                 
                                 echo $pageNav;
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                 ?>
                             </div>
                         </div>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                         <?php endif; ?>
                     
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                     <?php elseif ($selectedTab == 'chat'): ?>
                         <!-- Лог чата -->
                         <?php
@@ -1610,6 +3023,16 @@ if ($playerProfile) {
                             $chatMessages = $result->fetch_all(MYSQLI_ASSOC);
                             $stmt->close();
                         }
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                         ?>
                         
                         <div class="dataList">
@@ -1617,70 +3040,330 @@ if ($playerProfile) {
                                 <thead>
                                     <tr>
                                         <th>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                             <a href="?<?= http_build_query(array_merge($_GET, ['sort' => 'c.date', 'order' => ($sortField === 'c.date' && $sortOrder === 'ASC') ? 'DESC' : 'ASC'])) ?>">
                                                 Дата
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                 <?= ($sortField === 'c.date') ? ($sortOrder === 'ASC' ? '▲' : '▼') : '' ?>
                                             </a>
                                         </th>
                                         <th>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                             <a href="?<?= http_build_query(array_merge($_GET, ['sort' => 'u.nick', 'order' => ($sortField === 'u.nick' && $sortOrder === 'ASC') ? 'DESC' : 'ASC'])) ?>">
                                                 Игрок
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                 <?= ($sortField === 'u.nick') ? ($sortOrder === 'ASC' ? '▲' : '▼') : '' ?>
                                             </a>
                                         </th>
                                         <th>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                             <a href="?<?= http_build_query(array_merge($_GET, ['sort' => 's.server_name', 'order' => ($sortField === 's.server_name' && $sortOrder === 'ASC') ? 'DESC' : 'ASC'])) ?>">
                                                 Сервер
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                 <?= ($sortField === 's.server_name') ? ($sortOrder === 'ASC' ? '▲' : '▼') : '' ?>
                                             </a>
                                         </th>
                                         <th>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                             <a href="?<?= http_build_query(array_merge($_GET, ['sort' => 'c.type', 'order' => ($sortField === 'c.type' && $sortOrder === 'ASC') ? 'DESC' : 'ASC'])) ?>">
                                                 Тип
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                 <?= ($sortField === 'c.type') ? ($sortOrder === 'ASC' ? '▲' : '▼') : '' ?>
                                             </a>
                                         </th>
                                         <th>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                             <a href="?<?= http_build_query(array_merge($_GET, ['sort' => 'c.msg', 'order' => ($sortField === 'c.msg' && $sortOrder === 'ASC') ? 'DESC' : 'ASC'])) ?>">
                                                 Сообщение
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                 <?= ($sortField === 'c.msg') ? ($sortOrder === 'ASC' ? '▲' : '▼') : '' ?>
                                             </a>
                                         </th>
                                     </tr>
                                 </thead>
                                 <tbody>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                     <?php if (!empty($chatMessages)): ?>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                         <?php foreach ($chatMessages as $message): ?>
                                             <tr>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                 <td><?= formatDate($message['date']) ?></td>
                                                 <td>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                     <a href="?<?= http_build_query(array_merge($_GET, ['player_id' => $message['uid']])) ?>" 
                                                        class="player-link">
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                         <?= htmlspecialchars($message['nick']) ?>
                                                     </a>
                                                 </td>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                 <td><?= htmlspecialchars($message['server_name']) ?></td>
                                                 <td>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                     <?php if ($message['type'] == 'say'): ?>
                                                         <span class="badge badge--general">Общий</span>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                     <?php elseif ($message['type'] == 'team_say'): ?>
                                                         <span class="badge badge--team">Команда</span>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                     <?php else: ?>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                         <?= htmlspecialchars($message['type']) ?>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                     <?php endif; ?>
                                                 </td>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                 <td><?= htmlspecialchars($message['msg']) ?></td>
                                             </tr>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                         <?php endforeach; ?>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                     <?php else: ?>
                                         <tr>
                                             <td colspan="5" class="no-data">Нет сообщений в чате</td>
                                         </tr>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                     <?php endif; ?>
                                 </tbody>
                             </table>
                         </div>
                         
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                         <?php if ($totalPages > 1): ?>
                         <div class="pageNavWrapper">
                             <div class="pageNav">
@@ -1734,11 +3417,41 @@ if ($playerProfile) {
                                 }
                                 
                                 echo $pageNav;
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                 ?>
                             </div>
                         </div>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                         <?php endif; ?>
                     
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                     <?php elseif ($selectedTab == 'players' || $selectedTab == 'top100'): ?>
                         <!-- Статистика игроков -->
                         <?php
@@ -1866,6 +3579,16 @@ if ($playerProfile) {
                             }
                             $stmt->close();
                         }
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                         ?>
                         
                         <div class="dataList">
@@ -1874,85 +3597,425 @@ if ($playerProfile) {
                                     <tr>
                                         <th>#</th>
                                         <th>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                             <a href="?<?= http_build_query(array_merge($_GET, ['sort' => 'u.nick', 'order' => ($sortField === 'u.nick' && $sortOrder === 'ASC') ? 'DESC' : 'ASC'])) ?>">
                                                 Ник
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                 <?= ($sortField === 'u.nick') ? ($sortOrder === 'ASC' ? '▲' : '▼') : '' ?>
                                             </a>
                                         </th>
                                         <th>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                             <a href="?<?= http_build_query(array_merge($_GET, ['sort' => 'u.steamid', 'order' => ($sortField === 'u.steamid' && $sortOrder === 'ASC') ? 'DESC' : 'ASC'])) ?>">
                                                 SteamID
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                 <?= ($sortField === 'u.steamid') ? ($sortOrder === 'ASC' ? '▲' : '▼') : '' ?>
                                             </a>
                                         </th>
                                         <th>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                             <a href="?<?= http_build_query(array_merge($_GET, ['sort' => 'u.ip', 'order' => ($sortField === 'u.ip' && $sortOrder === 'ASC') ? 'DESC' : 'ASC'])) ?>">
                                                 IP
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                 <?= ($sortField === 'u.ip') ? ($sortOrder === 'ASC' ? '▲' : '▼') : '' ?>
                                             </a>
                                         </th>
                                         <th>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                             <a href="?<?= http_build_query(array_merge($_GET, ['sort' => 'a.regdate', 'order' => ($sortField === 'a.regdate' && $sortOrder === 'ASC') ? 'DESC' : 'ASC'])) ?>">
                                                 Регистрация
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                 <?= ($sortField === 'a.regdate') ? ($sortOrder === 'ASC' ? '▲' : '▼') : '' ?>
                                             </a>
                                         </th>
                                         <th>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                             <a href="?<?= http_build_query(array_merge($_GET, ['sort' => 'a.activitydate', 'order' => ($sortField === 'a.activitydate' && $sortOrder === 'ASC') ? 'DESC' : 'ASC'])) ?>">
                                                 Последняя активность
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                 <?= ($sortField === 'a.activitydate') ? ($sortOrder === 'ASC' ? '▲' : '▼') : '' ?>
                                             </a>
                                         </th>
                                         <th>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                             <a href="?<?= http_build_query(array_merge($_GET, ['sort' => 'played_seconds', 'order' => ($sortField === 'played_seconds' && $sortOrder === 'ASC') ? 'DESC' : 'ASC'])) ?>">
                                                 Общее время
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                 <?= ($sortField === 'played_seconds') ? ($sortOrder === 'ASC' ? '▲' : '▼') : '' ?>
                                             </a>
                                         </th>
                                         <th>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                             <a href="?<?= http_build_query(array_merge($_GET, ['sort' => 'a.online', 'order' => ($sortField === 'a.online' && $sortOrder === 'ASC') ? 'DESC' : 'ASC'])) ?>">
                                                 Время онлайн
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                 <?= ($sortField === 'a.online') ? ($sortOrder === 'ASC' ? '▲' : '▼') : '' ?>
                                             </a>
                                         </th>
                                     </tr>
                                 </thead>
                                 <tbody>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                     <?php if (!empty($players)): ?>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                         <?php foreach ($players as $index => $player): ?>
                                             <tr>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                 <td><?= $index + 1 ?></td>
                                                 <td>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                     <a href="?<?= http_build_query(array_merge($_GET, ['player_id' => $player['id']])) ?>" 
                                                        class="player-link">
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                         <?= htmlspecialchars($player['nick']) ?>
                                                     </a>
                                                 </td>
                                                 <td>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                     <?php if ($player['steamid64']): ?>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                         <a href="https://steamcommunity.com/profiles/<?= htmlspecialchars($player['steamid64']) ?>" target="_blank">
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                             <?= htmlspecialchars($player['steamid']) ?>
                                                         </a>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                     <?php else: ?>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                         <?= htmlspecialchars($player['steamid'] ?: '-') ?>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                     <?php endif; ?>
                                                 </td>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                 <td><?= htmlspecialchars($player['ip'] ?: '-') ?></td>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                 <td><?= formatDate($player['regdate']) ?></td>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                 <td><?= formatDate($player['activitydate']) ?></td>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                 <td><?= formatTime($player['played_seconds'] / 60) ?></td>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                 <td><?= formatTime($player['online']) ?></td>
                                             </tr>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                         <?php endforeach; ?>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                     <?php else: ?>
                                         <tr>
                                             <td colspan="9" class="no-data">Игроки не найдены</td>
                                         </tr>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                     <?php endif; ?>
                                 </tbody>
                             </table>
                         </div>
                         
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                         <?php if (!$isTop100 && $totalPages > 1): ?>
                         <div class="pageNavWrapper">
                             <div class="pageNav">
@@ -2006,11 +4069,41 @@ if ($playerProfile) {
                                 }
                                 
                                 echo $pageNav;
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                 ?>
                             </div>
                         </div>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                         <?php endif; ?>
                     
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                     <?php elseif ($selectedTab == 'additional'): ?>
                         <!-- Вкладка "Дополнительно" -->
                         <div class="additional-tab">
@@ -2019,6 +4112,16 @@ if ($playerProfile) {
                                     <h3>Топ карт по времени игры</h3>
                                     <canvas id="mapsChart"></canvas>
                                     
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                     <?php if (!empty($mapsData['maps'])): ?>
                                     <div class="dataList" style="margin-top: 20px;">
                                         <table class="dataList-table">
@@ -2029,15 +4132,65 @@ if ($playerProfile) {
                                                 </tr>
                                             </thead>
                                             <tbody>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                 <?php foreach ($mapsData['maps'] as $index => $map): ?>
                                                     <tr>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                         <td><?= $map ?></td>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                         <td><?= formatTime($mapsData['playtime'][$index] / 60) ?></td>
                                                     </tr>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                 <?php endforeach; ?>
                                             </tbody>
                                         </table>
                                     </div>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                     <?php endif; ?>
                                 </div>
                                 
@@ -2045,6 +4198,16 @@ if ($playerProfile) {
                                     <h3>Топ стран по подключениям</h3>
                                     <canvas id="countriesChart"></canvas>
                                     
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                     <?php if (!empty($countriesData['countries'])): ?>
                                     <div class="dataList" style="margin-top: 20px;">
                                         <table class="dataList-table">
@@ -2055,778 +4218,105 @@ if ($playerProfile) {
                                                 </tr>
                                             </thead>
                                             <tbody>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                 <?php foreach ($countriesData['countries'] as $index => $country): ?>
                                                     <tr>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                         <td><?= $country ?></td>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                         <td><?= $countriesData['connections'][$index] ?></td>
                                                     </tr>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                                 <?php endforeach; ?>
                                             </tbody>
                                         </table>
                                     </div>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                                     <?php endif; ?>
                                 </div>
                             </div>
                         </div>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
                     <?php endif; ?>
                 </div>
+$jsData = [
+    "activityDates" => $activityData["dates"],
+    "activityConnections" => $activityData["connections"],
+    "activityPlaytime" => $activityData["playtime"],
+    "maps" => $mapsData["maps"] ?? [],
+    "mapsPlaytime" => array_map(function($pt){ return $pt / 3600; }, $mapsData["playtime"] ?? []),
+    "countries" => $countriesData["countries"] ?? [],
+    "countriesConnections" => $countriesData["connections"] ?? [],
+    "selectedTab" => $selectedTab
+];
             <?php endif; ?>
         </div>
     </div>
 </div>
 
-<style>
-/* Общие стили - интегрированные с XF2 */
-.block {
-    background-color: var(--xf-contentBg);
-    border: 1px solid var(--xf-borderColor);
-    border-radius: var(--xf-borderRadiusMedium);
-    margin-bottom: var(--xf-paddingLarge);
-    box-shadow: var(--xf-boxShadow);
-}
 
-.block-container {
-    padding: var(--xf-paddingLarge);
-}
-
-.block-header {
-    border-bottom: 1px solid var(--xf-borderColor);
-    padding-bottom: var(--xf-paddingMedium);
-    margin-bottom: var(--xf-paddingLarge);
-}
-
-.block-title {
-    font-size: var(--xf-fontSizeLarge);
-    color: var(--xf-textColor);
-    margin: 0;
-}
-
-.filters {
-    background-color: var(--xf-contentAltBg);
-    border-radius: var(--xf-borderRadiusMedium);
-    padding: var(--xf-paddingLarge);
-    margin-bottom: var(--xf-paddingLarge);
-    border: 1px solid var(--xf-borderColor);
-}
-
-.filter-group {
-    padding: 15px;
-}
-
-.filter-header-title {
-    color: var(--xf-textColorMuted);
-    font-size: var(--xf-fontSizeNormal);
-    margin-top: 0;
-    margin-bottom: var(--xf-paddingMedium);
-    padding: 0 5px;
-}
-
-.filter-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--xf-paddingMedium);
-    margin-bottom: var(--xf-paddingMedium);
-}
-
-.filter-item {
-    flex: 1;
-    min-width: 250px;
-}
-
-.filter-item label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: 600;
-    color: var(--xf-textColor);
-    padding: 0 5px;
-}
-
-.input {
-    padding: 10px 12px;
-    border: 1px solid var(--xf-borderColor);
-    border-radius: var(--xf-borderRadiusSmall);
-    width: 100%;
-    box-sizing: border-box;
-    background-color: var(--xf-contentBg);
-    color: var(--xf-textColor);
-}
-
-.input:focus {
-    border-color: var(--xf-textSelectionColor);
-    outline: none;
-    box-shadow: 0 0 0 2px rgba(red(var(--xf-textSelectionColor)), green(var(--xf-textSelectionColor)), blue(var(--xf-textSelectionColor)), 0.15);
-}
-
-.input--select {
-    height: 40px;
-}
-
-.button {
-    display: inline-block;
-    padding: 10px 16px;
-    border-radius: var(--xf-borderRadiusSmall);
-    font-size: var(--xf-fontSizeNormal);
-    font-weight: 600;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.2s;
-    border: 1px solid transparent;
-    text-decoration: none;
-    white-space: nowrap;
-}
-
-.button--primary {
-    background-color: var(--xf-buttonPrimaryBg);
-    color: var(--xf-buttonPrimaryColor);
-    border-color: var(--xf-buttonPrimaryBg);
-}
-
-.button--primary:hover {
-    background-color: var(--xf-buttonPrimaryBgActive);
-    border-color: var(--xf-buttonPrimaryBgActive);
-}
-
-.button--link {
-    background-color: transparent;
-    color: var(--xf-linkColor);
-    border: 1px solid transparent;
-}
-
-.button--link:hover {
-    color: var(--xf-linkHoverColor);
-    text-decoration: underline;
-}
-
-.tabs {
-    display: flex;
-    border-bottom: 1px solid var(--xf-borderColor);
-    margin-bottom: var(--xf-paddingLarge);
-    flex-wrap: wrap;
-}
-
-.tab {
-    padding: 10px 20px;
-    border: 1px solid transparent;
-    border-bottom: none;
-    border-radius: var(--xf-borderRadiusMedium) var(--xf-borderRadiusMedium) 0 0;
-    text-decoration: none;
-    color: var(--xf-textColorMuted);
-    font-weight: 600;
-    margin-right: 5px;
-    margin-bottom: -1px;
-}
-
-.tab.active {
-    background-color: var(--xf-contentBg);
-    border-color: var(--xf-borderColor);
-    color: var(--xf-textColor);
-    position: relative;
-    top: 1px;
-}
-
-.tab-content {
-    background-color: var(--xf-contentBg);
-    border: 1px solid var(--xf-borderColor);
-    border-radius: var(--xf-borderRadiusMedium);
-    padding: var(--xf-paddingLarge);
-}
-
-/* Информационные карточки */
-.info-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--xf-paddingLarge);
-}
-
-.info-card {
-    background-color: var(--xf-contentAltBg);
-    border-radius: var(--xf-borderRadiusMedium);
-    padding: var(--xf-paddingLarge);
-    box-shadow: var(--xf-boxShadow);
-    text-align: center;
-    border: 1px solid var(--xf-borderColor);
-}
-
-.info-card-title {
-    font-size: var(--xf-fontSizeNormal);
-    color: var(--xf-textColorMuted);
-    margin-bottom: 10px;
-}
-
-.info-card-value {
-    font-size: 28px;
-    font-weight: 700;
-    color: var(--xf-textColor);
-    margin-bottom: 5px;
-}
-
-.info-card-subtext {
-    font-size: var(--xf-fontSizeSmall);
-    color: var(--xf-textColorAccent);
-    font-weight: 600;
-}
-
-/* Графики */
-.chart-container {
-    background-color: var(--xf-contentAltBg);
-    border-radius: var(--xf-borderRadiusMedium);
-    padding: var(--xf-paddingLarge);
-    box-shadow: var(--xf-boxShadow);
-    min-height: 300px;
-    border: 1px solid var(--xf-borderColor);
-    display: flex;
-    flex-direction: column;
-}
-
-.chart-container canvas {
-    width: 100% !important;
-    height: auto !important;
-    max-height: 400px;
-    flex-grow: 1;
-}
-
-.charts-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--xf-paddingLarge);
-}
-
-.charts-row .chart-container {
-    flex: 1 1 45%;
-    min-width: 300px;
-}
-
-/* Отступы */
-.spacer {
-    height: 20px;
-}
-
-.spacer-lg {
-    height: 30px;
-}
-
-/* Таблицы */
-.dataList {
-    overflow-x: auto;
-    margin-top: 15px;
-}
-
-.dataList-table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: var(--xf-contentBg);
-    border: 1px solid var(--xf-borderColor);
-}
-
-.dataList-table th {
-    background-color: var(--xf-contentAltBg);
-    padding: 12px 15px;
-    text-align: left;
-    font-weight: 600;
-    border-bottom: 1px solid var(--xf-borderColor);
-    color: var(--xf-textColor);
-}
-
-.dataList-table th a {
-    color: var(--xf-textColor);
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.dataList-table td {
-    padding: 12px 15px;
-    border-bottom: 1px solid var(--xf-borderColor);
-    color: var(--xf-textColor);
-}
-
-.dataList-table tr:last-child td {
-    border-bottom: none;
-}
-
-.dataList-table tr:hover td {
-    background-color: var(--xf-contentHighlightBg);
-}
-
-.no-data {
-    text-align: center;
-    padding: 20px;
-    color: var(--xf-textColorMuted);
-}
-
-.badge {
-    display: inline-block;
-    padding: 3px 8px;
-    border-radius: var(--xf-borderRadiusSmall);
-    font-size: var(--xf-fontSizeSmall);
-    font-weight: 600;
-}
-
-.badge--general {
-    background-color: rgba(54, 162, 235, 0.2);
-    color: #36a2eb;
-}
-
-.badge--team {
-    background-color: rgba(255, 99, 132, 0.2);
-    color: #ff6384;
-}
-
-/* Профиль игрока */
-.player-profile {
-    background-color: var(--xf-contentAltBg);
-    border-radius: var(--xf-borderRadiusMedium);
-    padding: var(--xf-paddingLarge);
-    box-shadow: var(--xf-boxShadow);
-    border: 1px solid var(--xf-borderColor);
-}
-
-.profile-header {
-    display: flex;
-    gap: 20px;
-    margin-bottom: 20px;
-    align-items: flex-start;
-}
-
-.profile-avatar img {
-    width: 150px;
-    height: 150px;
-    border-radius: 0;
-    object-fit: cover;
-    border: 2px solid var(--xf-borderColor);
-}
-
-.profile-header-main {
-    flex: 1;
-}
-
-.profile-title {
-    margin-top: 0;
-    margin-bottom: var(--xf-paddingLarge);
-    padding-bottom: var(--xf-paddingMedium);
-    border-bottom: 1px solid var(--xf-borderColor);
-    color: var(--xf-textColor);
-}
-
-.profile-info {
-    margin-top: var(--xf-paddingLarge);
-    background: var(--xf-contentBg);
-    border: 1px solid var(--xf-borderColor);
-    border-radius: var(--xf-borderRadiusMedium);
-    padding: 15px;
-}
-
-.profile-info-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--xf-paddingMedium);
-}
-
-.profile-info-item {
-    background: var(--xf-contentAltBg);
-    border: 1px solid var(--xf-borderColor);
-    border-radius: var(--xf-borderRadiusSmall);
-    padding: 10px 15px;
-}
-
-.info-label {
-    font-size: var(--xf-fontSizeSmall);
-    color: var(--xf-textColorMuted);
-    margin-bottom: 5px;
-}
-
-.info-value {
-    font-size: var(--xf-fontSizeNormal);
-    font-weight: 600;
-    color: var(--xf-textColor);
-}
-
-.profile-section {
-    margin-top: var(--xf-paddingLarge);
-    padding-top: var(--xf-paddingLarge);
-    border-top: 1px solid var(--xf-borderColor);
-}
-
-.profile-section:first-child {
-    margin-top: 0;
-    padding-top: 0;
-    border-top: none;
-}
-
-.profile-section h3 {
-    margin-top: 0;
-    margin-bottom: var(--xf-paddingMedium);
-    padding-bottom: var(--xf-paddingMedium);
-    border-bottom: 1px solid var(--xf-borderColor);
-    color: var(--xf-textColor);
-}
-
-/* Ссылки на игроков */
-.player-link {
-    color: var(--xf-linkColor);
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.player-link:hover {
-    color: var(--xf-linkHoverColor);
-    text-decoration: underline;
-}
-
-/* Пагинация */
-.pageNavWrapper {
-    margin-top: 20px;
-}
-
-.pageNav {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 5px;
-}
-
-.pageNav-jump,
-.pageNav-page {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 30px;
-    height: 30px;
-    padding: 0 8px;
-    border: 1px solid var(--xf-borderColor);
-    border-radius: 4px;
-    font-size: 13px;
-    line-height: 1;
-    text-decoration: none;
-}
-
-.pageNav-jump--prev:before {
-    content: "«";
-}
-
-.pageNav-jump--next:before {
-    content: "»";
-}
-
-.pageNav-jump--disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
-.pageNav-page {
-    background-color: var(--xf-contentAltBg);
-}
-
-.pageNav-page--current {
-    background-color: var(--xf-buttonPrimaryBg);
-    color: var(--xf-buttonPrimaryColor);
-    border-color: var(--xf-buttonPrimaryBg);
-}
-
-.pageNav-ellipsis {
-    padding: 0 8px;
-}
-
-/* Адаптивность */
-@media (max-width: 900px) {
-    .filter-row {
-        flex-direction: column;
-        gap: 10px;
-    }
-    
-    .filter-item {
-        min-width: 100%;
-    }
-    
-    .info-cards {
-        grid-template-columns: 1fr;
-    }
-    
-    .profile-header {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-    
-    .profile-info-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .tabs {
-        flex-direction: column;
-    }
-    
-    .tab {
-        width: 100%;
-        margin-right: 0;
-        border-radius: var(--xf-borderRadiusSmall);
-        margin-bottom: 5px;
-    }
-    
-    .tab.active {
-        border-bottom: 1px solid var(--xf-borderColor);
-    }
-    
-    .charts-row {
-        flex-direction: column;
-    }
-    
-    .charts-row .chart-container {
-        flex: 1 1 100%;
-    }
-}
-
-@media (max-width: 480px) {
-    .filter-item input, 
-    .filter-item select {
-        width: 100%;
-    }
-    
-    .dataList-table th,
-    .dataList-table td {
-        padding: 8px 10px;
-        font-size: var(--xf-fontSizeSmall);
-    }
-    
-    .tab {
-        padding: 8px 12px;
-        font-size: var(--xf-fontSizeSmall);
-    }
-    
-    .pageNav {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .pageNav a {
-        width: 100%;
-        text-align: center;
-        margin-bottom: 5px;
-    }
-    
-    .info-card {
-        padding: var(--xf-paddingMedium);
-    }
-    
-    .info-card-value {
-        font-size: 24px;
-    }
-    
-    .profile-avatar img {
-        width: 120px;
-        height: 120px;
-    }
-}
-</style>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Инициализация календаря
-    const dateRangeInput = document.querySelector('.date-range');
-    const startDateInput = document.querySelector('input[name="start_date"]');
-    const endDateInput = document.querySelector('input[name="end_date"]');
-    
-    if (dateRangeInput) {
-        flatpickr(dateRangeInput, {
-            mode: 'range',
-            dateFormat: 'Y-m-d',
-            defaultDate: [startDateInput.value, endDateInput.value],
-            onChange: function(selectedDates, dateStr, instance) {
-                if (selectedDates.length === 2) {
-                    startDateInput.value = selectedDates[0] ? selectedDates[0].toISOString().split('T')[0] : '';
-                    endDateInput.value = selectedDates[1] ? selectedDates[1].toISOString().split('T')[0] : '';
-                }
-            }
-        });
-    }
-    
-    // График активности (два графика)
-    const activityCtx = document.getElementById('activityChart')?.getContext('2d');
-    if (activityCtx) {
-        const activityChart = new Chart(activityCtx, {
-            type: 'line',
-            data: {
-                labels: <?= json_encode($activityData['dates']) ?>,
-                datasets: [
-                    {
-                        label: 'Подключения',
-                        data: <?= json_encode($activityData['connections']) ?>,
-                        backgroundColor: 'rgba(54, 162, 235, 0.1)',
-                        borderColor: 'rgba(54, 162, 235, 1)',
-                        borderWidth: 2,
-                        pointRadius: 3,
-                        pointBackgroundColor: 'rgba(54, 162, 235, 1)',
-                        tension: 0.4,
-                        fill: true,
-                        yAxisID: 'y'
-                    },
-                    {
-                        label: 'Время игры (часы)',
-                        data: <?= json_encode($activityData['playtime']) ?>,
-                        backgroundColor: 'rgba(255, 159, 64, 0.1)',
-                        borderColor: 'rgba(255, 159, 64, 1)',
-                        borderWidth: 2,
-                        pointRadius: 3,
-                        pointBackgroundColor: 'rgba(255, 159, 64, 1)',
-                        tension: 0.4,
-                        fill: true,
-                        yAxisID: 'y1'
-                    }
-                ]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                interaction: {
-                    mode: 'index',
-                    intersect: false
-                },
-                plugins: {
-                    legend: {
-                        position: 'top',
-                    },
-                    tooltip: {
-                        mode: 'index',
-                        intersect: false
-                    }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        grid: {
-                            color: 'rgba(0, 0, 0, 0.05)'
-                        },
-                        ticks: {
-                            color: 'rgba(0, 0, 0, 0.7)'
-                        },
-                        position: 'left',
-                        title: {
-                            display: true,
-                            text: 'Подключения'
-                        }
-                    },
-                    y1: {
-                        beginAtZero: true,
-                        grid: {
-                            drawOnChartArea: false,
-                        },
-                        ticks: {
-                            color: 'rgba(255, 159, 64, 1)'
-                        },
-                        position: 'right',
-                        title: {
-                            display: true,
-                            text: 'Часы игры'
-                        }
-                    },
-                    x: {
-                        grid: {
-                            display: false
-                        },
-                        ticks: {
-                            color: 'rgba(116, 118, 121, 0.72)'
-                        }
-                    }
-                }
-            }
-        });
-    }
-    
-    <?php if ($selectedTab == 'additional'): ?>
-        // График по картам
-        const mapsCtx = document.getElementById('mapsChart')?.getContext('2d');
-        if (mapsCtx) {
-            const mapsChart = new Chart(mapsCtx, {
-                type: 'bar',
-                data: {
-                    labels: <?= json_encode($mapsData['maps']) ?>,
-                    datasets: [{
-                        label: 'Время игры (часы)',
-                        data: <?= json_encode(array_map(function($pt) { return $pt / 3600; }, $mapsData['playtime'])) ?>,
-                        backgroundColor: 'rgba(75, 192, 192, 0.6)',
-                        borderColor: 'rgba(75, 192, 192, 1)',
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            display: false
-                        }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            title: {
-                                display: true,
-                                text: 'Часы игры'
-                            }
-                        }
-                    }
-                }
-            });
-        }
-        
-        // График по странам
-        const countriesCtx = document.getElementById('countriesChart')?.getContext('2d');
-        if (countriesCtx) {
-            const countriesChart = new Chart(countriesCtx, {
-                type: 'doughnut',
-                data: {
-                    labels: <?= json_encode($countriesData['countries']) ?>,
-                    datasets: [{
-                        label: 'Подключения',
-                        data: <?= json_encode($countriesData['connections']) ?>,
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.6)',
-                            'rgba(54, 162, 235, 0.6)',
-                            'rgba(255, 206, 86, 0.6)',
-                            'rgba(75, 192, 192, 0.6)',
-                            'rgba(153, 102, 255, 0.6)',
-                            'rgba(255, 159, 64, 0.6)',
-                            'rgba(199, 199, 199, 0.6)',
-                            'rgba(83, 102, 255, 0.6)',
-                            'rgba(40, 159, 64, 0.6)',
-                            'rgba(210, 99, 132, 0.6)'
-                        ],
-                        borderColor: [
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)',
-                            'rgba(255, 159, 64, 1)',
-                            'rgba(199, 199, 199, 1)',
-                            'rgba(83, 102, 255, 1)',
-                            'rgba(40, 159, 64, 1)',
-                            'rgba(210, 99, 132, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            position: 'right',
-                        }
-                    }
-                }
-            });
-        }
-    <?php endif; ?>
-});
-</script>
 
 <?php
 // ================= КОНЕЦ СКРИПТА =================
 
 // Получаем сгенерированный контент
 $content = ob_get_clean();
+$templater = XF::app()->templater();
+$content = $templater->renderTemplate('public:stats_page', ['content' => $content]);
 
 // Настройки страницы для XenForo
 \ScriptsPages\Setup::set([

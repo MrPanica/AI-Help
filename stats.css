@@ -1,0 +1,542 @@
+/* Общие стили - интегрированные с XF2 */
+.block {
+    background-color: var(--xf-contentBg);
+    border: 1px solid var(--xf-borderColor);
+    border-radius: var(--xf-borderRadiusMedium);
+    margin-bottom: var(--xf-paddingLarge);
+    box-shadow: var(--xf-boxShadow);
+}
+
+.block-container {
+    padding: var(--xf-paddingLarge);
+}
+
+.block-header {
+    border-bottom: 1px solid var(--xf-borderColor);
+    padding-bottom: var(--xf-paddingMedium);
+    margin-bottom: var(--xf-paddingLarge);
+}
+
+.block-title {
+    font-size: var(--xf-fontSizeLarge);
+    color: var(--xf-textColor);
+    margin: 0;
+}
+
+.filters {
+    background-color: var(--xf-contentAltBg);
+    border-radius: var(--xf-borderRadiusMedium);
+    padding: var(--xf-paddingLarge);
+    margin-bottom: var(--xf-paddingLarge);
+    border: 1px solid var(--xf-borderColor);
+}
+
+.filter-group {
+    padding: 15px;
+}
+
+.filter-header-title {
+    color: var(--xf-textColorMuted);
+    font-size: var(--xf-fontSizeNormal);
+    margin-top: 0;
+    margin-bottom: var(--xf-paddingMedium);
+    padding: 0 5px;
+}
+
+.filter-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--xf-paddingMedium);
+    margin-bottom: var(--xf-paddingMedium);
+}
+
+.filter-item {
+    flex: 1;
+    min-width: 250px;
+}
+
+.filter-item label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: var(--xf-textColor);
+    padding: 0 5px;
+}
+
+.input {
+    padding: 10px 12px;
+    border: 1px solid var(--xf-borderColor);
+    border-radius: var(--xf-borderRadiusSmall);
+    width: 100%;
+    box-sizing: border-box;
+    background-color: var(--xf-contentBg);
+    color: var(--xf-textColor);
+}
+
+.input:focus {
+    border-color: var(--xf-textSelectionColor);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(red(var(--xf-textSelectionColor)), green(var(--xf-textSelectionColor)), blue(var(--xf-textSelectionColor)), 0.15);
+}
+
+.input--select {
+    height: 40px;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 16px;
+    border-radius: var(--xf-borderRadiusSmall);
+    font-size: var(--xf-fontSizeNormal);
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 1px solid transparent;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.button--primary {
+    background-color: var(--xf-buttonPrimaryBg);
+    color: var(--xf-buttonPrimaryColor);
+    border-color: var(--xf-buttonPrimaryBg);
+}
+
+.button--primary:hover {
+    background-color: var(--xf-buttonPrimaryBgActive);
+    border-color: var(--xf-buttonPrimaryBgActive);
+}
+
+.button--link {
+    background-color: transparent;
+    color: var(--xf-linkColor);
+    border: 1px solid transparent;
+}
+
+.button--link:hover {
+    color: var(--xf-linkHoverColor);
+    text-decoration: underline;
+}
+
+.tabs {
+    display: flex;
+    border-bottom: 1px solid var(--xf-borderColor);
+    margin-bottom: var(--xf-paddingLarge);
+    flex-wrap: wrap;
+}
+
+.tab {
+    padding: 10px 20px;
+    border: 1px solid transparent;
+    border-bottom: none;
+    border-radius: var(--xf-borderRadiusMedium) var(--xf-borderRadiusMedium) 0 0;
+    text-decoration: none;
+    color: var(--xf-textColorMuted);
+    font-weight: 600;
+    margin-right: 5px;
+    margin-bottom: -1px;
+}
+
+.tab.active {
+    background-color: var(--xf-contentBg);
+    border-color: var(--xf-borderColor);
+    color: var(--xf-textColor);
+    position: relative;
+    top: 1px;
+}
+
+.tab-content {
+    background-color: var(--xf-contentBg);
+    border: 1px solid var(--xf-borderColor);
+    border-radius: var(--xf-borderRadiusMedium);
+    padding: var(--xf-paddingLarge);
+}
+
+/* Информационные карточки */
+.info-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--xf-paddingLarge);
+}
+
+.info-card {
+    background-color: var(--xf-contentAltBg);
+    border-radius: var(--xf-borderRadiusMedium);
+    padding: var(--xf-paddingLarge);
+    box-shadow: var(--xf-boxShadow);
+    text-align: center;
+    border: 1px solid var(--xf-borderColor);
+}
+
+.info-card-title {
+    font-size: var(--xf-fontSizeNormal);
+    color: var(--xf-textColorMuted);
+    margin-bottom: 10px;
+}
+
+.info-card-value {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--xf-textColor);
+    margin-bottom: 5px;
+}
+
+.info-card-subtext {
+    font-size: var(--xf-fontSizeSmall);
+    color: var(--xf-textColorAccent);
+    font-weight: 600;
+}
+
+/* Графики */
+.chart-container {
+    background-color: var(--xf-contentAltBg);
+    border-radius: var(--xf-borderRadiusMedium);
+    padding: var(--xf-paddingLarge);
+    box-shadow: var(--xf-boxShadow);
+    min-height: 300px;
+    border: 1px solid var(--xf-borderColor);
+    display: flex;
+    flex-direction: column;
+}
+
+.chart-container canvas {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 400px;
+    flex-grow: 1;
+}
+
+.charts-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--xf-paddingLarge);
+}
+
+.charts-row .chart-container {
+    flex: 1 1 45%;
+    min-width: 300px;
+}
+
+/* Отступы */
+.spacer {
+    height: 20px;
+}
+
+.spacer-lg {
+    height: 30px;
+}
+
+/* Таблицы */
+.dataList {
+    overflow-x: auto;
+    margin-top: 15px;
+}
+
+.dataList-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--xf-contentBg);
+    border: 1px solid var(--xf-borderColor);
+}
+
+.dataList-table th {
+    background-color: var(--xf-contentAltBg);
+    padding: 12px 15px;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 1px solid var(--xf-borderColor);
+    color: var(--xf-textColor);
+}
+
+.dataList-table th a {
+    color: var(--xf-textColor);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.dataList-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid var(--xf-borderColor);
+    color: var(--xf-textColor);
+}
+
+.dataList-table tr:last-child td {
+    border-bottom: none;
+}
+
+.dataList-table tr:hover td {
+    background-color: var(--xf-contentHighlightBg);
+}
+
+.no-data {
+    text-align: center;
+    padding: 20px;
+    color: var(--xf-textColorMuted);
+}
+
+.badge {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: var(--xf-borderRadiusSmall);
+    font-size: var(--xf-fontSizeSmall);
+    font-weight: 600;
+}
+
+.badge--general {
+    background-color: rgba(54, 162, 235, 0.2);
+    color: #36a2eb;
+}
+
+.badge--team {
+    background-color: rgba(255, 99, 132, 0.2);
+    color: #ff6384;
+}
+
+/* Профиль игрока */
+.player-profile {
+    background-color: var(--xf-contentAltBg);
+    border-radius: var(--xf-borderRadiusMedium);
+    padding: var(--xf-paddingLarge);
+    box-shadow: var(--xf-boxShadow);
+    border: 1px solid var(--xf-borderColor);
+}
+
+.profile-header {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    align-items: flex-start;
+}
+
+.profile-avatar img {
+    width: 150px;
+    height: 150px;
+    border-radius: 0;
+    object-fit: cover;
+    border: 2px solid var(--xf-borderColor);
+}
+
+.profile-header-main {
+    flex: 1;
+}
+
+.profile-title {
+    margin-top: 0;
+    margin-bottom: var(--xf-paddingLarge);
+    padding-bottom: var(--xf-paddingMedium);
+    border-bottom: 1px solid var(--xf-borderColor);
+    color: var(--xf-textColor);
+}
+
+.profile-info {
+    margin-top: var(--xf-paddingLarge);
+    background: var(--xf-contentBg);
+    border: 1px solid var(--xf-borderColor);
+    border-radius: var(--xf-borderRadiusMedium);
+    padding: 15px;
+}
+
+.profile-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--xf-paddingMedium);
+}
+
+.profile-info-item {
+    background: var(--xf-contentAltBg);
+    border: 1px solid var(--xf-borderColor);
+    border-radius: var(--xf-borderRadiusSmall);
+    padding: 10px 15px;
+}
+
+.info-label {
+    font-size: var(--xf-fontSizeSmall);
+    color: var(--xf-textColorMuted);
+    margin-bottom: 5px;
+}
+
+.info-value {
+    font-size: var(--xf-fontSizeNormal);
+    font-weight: 600;
+    color: var(--xf-textColor);
+}
+
+.profile-section {
+    margin-top: var(--xf-paddingLarge);
+    padding-top: var(--xf-paddingLarge);
+    border-top: 1px solid var(--xf-borderColor);
+}
+
+.profile-section:first-child {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+}
+
+.profile-section h3 {
+    margin-top: 0;
+    margin-bottom: var(--xf-paddingMedium);
+    padding-bottom: var(--xf-paddingMedium);
+    border-bottom: 1px solid var(--xf-borderColor);
+    color: var(--xf-textColor);
+}
+
+/* Ссылки на игроков */
+.player-link {
+    color: var(--xf-linkColor);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.player-link:hover {
+    color: var(--xf-linkHoverColor);
+    text-decoration: underline;
+}
+
+/* Пагинация */
+.pageNavWrapper {
+    margin-top: 20px;
+}
+
+.pageNav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.pageNav-jump,
+.pageNav-page {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 30px;
+    height: 30px;
+    padding: 0 8px;
+    border: 1px solid var(--xf-borderColor);
+    border-radius: 4px;
+    font-size: 13px;
+    line-height: 1;
+    text-decoration: none;
+}
+
+.pageNav-jump--prev:before {
+    content: "«";
+}
+
+.pageNav-jump--next:before {
+    content: "»";
+}
+
+.pageNav-jump--disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pageNav-page {
+    background-color: var(--xf-contentAltBg);
+}
+
+.pageNav-page--current {
+    background-color: var(--xf-buttonPrimaryBg);
+    color: var(--xf-buttonPrimaryColor);
+    border-color: var(--xf-buttonPrimaryBg);
+}
+
+.pageNav-ellipsis {
+    padding: 0 8px;
+}
+
+/* Адаптивность */
+@media (max-width: 900px) {
+    .filter-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .filter-item {
+        min-width: 100%;
+    }
+    
+    .info-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .profile-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .profile-info-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .tabs {
+        flex-direction: column;
+    }
+    
+    .tab {
+        width: 100%;
+        margin-right: 0;
+        border-radius: var(--xf-borderRadiusSmall);
+        margin-bottom: 5px;
+    }
+    
+    .tab.active {
+        border-bottom: 1px solid var(--xf-borderColor);
+    }
+    
+    .charts-row {
+        flex-direction: column;
+    }
+    
+    .charts-row .chart-container {
+        flex: 1 1 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .filter-item input, 
+    .filter-item select {
+        width: 100%;
+    }
+    
+    .dataList-table th,
+    .dataList-table td {
+        padding: 8px 10px;
+        font-size: var(--xf-fontSizeSmall);
+    }
+    
+    .tab {
+        padding: 8px 12px;
+        font-size: var(--xf-fontSizeSmall);
+    }
+    
+    .pageNav {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .pageNav a {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 5px;
+    }
+    
+    .info-card {
+        padding: var(--xf-paddingMedium);
+    }
+    
+    .info-card-value {
+        font-size: 24px;
+    }
+    
+    .profile-avatar img {
+        width: 120px;
+        height: 120px;
+    }
+}
